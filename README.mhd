@@ -9,9 +9,29 @@
 <!---
 makh010203p4/makh010203p4 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 You can click the Preview link to take a look at your changes.
----> correspond jkfrdlk nhg mhhsdfr jjdjm bbj 55 jte h___hh__tt__yy_yy A--h restorkng protec---
-<<
-""
-(responsable) des affaires étrangères (5jst6)
-hhesw utredgh 'www(responsable de)
-des ressources humaines (js5)
+---> correspond jkfrdlk nhg mhhsdfr jjdjm bbj 55 jte h___hh__tt__yy_yy A--h restorkng 
+import requests
+from bs4 import BeautifulSoup as BSP
+
+def split_url(url):
+    return url.split('&')[0]
+
+def get_image_urls(search_query):
+    url = f"https://cn.bing.com/images/search?q={search_query}&first=1&cw=1177&ch=678"
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+    }
+    rss = requests.get(url, headers=headers)
+    soup = BSP(rss.content, "html.parser")
+
+    all_img = []
+    for img in soup.find_all('img'):
+        img_url = img.get('src2')
+        if img_url and img_url.startswith('https://tse2.mm.bing.net/'):
+            img_url = split_url(img_url)
+            all_img.append(img_url)
+
+    return all_img
+
+print(get_image_urls("cat"))
+(((restor))
