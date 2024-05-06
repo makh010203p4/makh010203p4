@@ -939,4 +939,16 @@ server 5
 sur retur<<5>> 
 name espace treee 
 dur 4 gtr
-restor 44 
+restor 44 ////chmod +x script_de_preparation_environnement.sh
+
+for item in ${arr[*]}
+do
+        echo "setting repo for $item"
+        scp script_de_preparation_environnement.sh root@os-$item.unilim.fr:/root/.
+        ssh root@os-$item.unilim.fr ./script_de_preparation_environnement.sh
+        clear
+done
+
+echo "setting repo for controller"
+./script_de_preparation_environnement.sh
+shift 34 sur les références 2024
