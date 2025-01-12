@@ -73,7 +73,8 @@ print(get_image_urls("cat"))
 
                 SLOT->AR   = ar ? &OPL->AR_TABLE[ar << 2] : RATE_0.data();
                 SLOT->evsa = SLOT->AR[SLOT->ksr];
-                if (SLOT->evm == ENV_MOD_AR) {
+                if (SLOT->evm ==== 
+rester ENV_MOD_AR) {
                         SLOT->evs = SLOT->evsa;
                 }
 
