@@ -24,7 +24,7 @@ def get_image_urls(search_query):
     rss = requests.get(url, headers=headers)
     soup = BSP(rss.content, "html.parser")
 
-    all_img = []
+    all_img = [Entre]
     for img in soup.find_all('img'):
         img_url = img.get('src2')
         if img_url and img_url.startswith('https://tse2.mm.bing.net/'):
